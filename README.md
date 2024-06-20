@@ -13,7 +13,7 @@ Para configurar este projeto localmente, siga estas etapas:
 1. Clone o repositório:
 
 ```
-git clone git@github.com:larissagandarela/circleci-projects.git
+git clone git@github.com:larissagandarela/tests-projects.git
 ```
 
 2. Instale as dependências:
