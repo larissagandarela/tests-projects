@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
-import { uuid } from 'uuidv4';
+import Product from './models/product';
+
 
 const app = express();
 
@@ -14,20 +15,9 @@ app.get('/products', (request, response) => {
 });
 
 app.post('/products', (request, response) => {
-  const { code, description, buyPrice, sellPrice, tags } = request.body;
+  const { code, description, buyPrice, sellPrice, tags, id } = request.body;
+  const product = new Product(code, description, buyPrice, sellPrice, tags, id)
 
-  const p = products.find((v) => v.code == code);
-  const lov = p ? p.lovers : 0;
-
-  const product = {
-    id: uuid(),
-    code,
-    description,
-    buyPrice,
-    sellPrice,
-    tags,
-    lovers: lov,
-  };
   products.push(product);
   response.status(201).json(product);
 });
